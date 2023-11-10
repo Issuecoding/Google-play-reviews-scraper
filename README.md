@@ -60,7 +60,7 @@ def merge_CSVs(language):
     df_merged.to_csv(path_2 + '/All_reviews_' + language + '.csv', index=False)
 ```
 ### Let's add a language column
-```
+```python
 # Add language column
 def add_language(language):
     filename = 'All_reviews_' + language + '.csv'
@@ -72,13 +72,13 @@ def add_language(language):
     return all_reviews_df, filename
 ```
 ### Let's export the results as a CSV
-```
+```python
 # Export results to csv
 def export(all_reviews_df, filename):
     all_reviews_df.to_csv(path_2 + '/' + filename, index=False)
 ```
 ### And delete remaining single CSVs
-```
+```python
 # Delete remaining single rating files
 def remove_single_CSVs():
     all_single_ratings = glob.glob(os.path.join(path_1, 'reviews*.csv'))
@@ -86,7 +86,7 @@ def remove_single_CSVs():
       os.remove(x)
 ```
 ### And this is the master function which directs how the other functions should flow
-```
+```python
 # Master command
 def master_command(language, country, app_package_name):
     extract_comments(language, country, app_package_name)
@@ -96,7 +96,7 @@ def master_command(language, country, app_package_name):
     remove_single_CSVs()   
 ```
 ### So we start it all by inputting the desired app package name here
-```
+```python
 master_command('en', 'US', 'com.spotify.music') # (language, country, package name)
 ```
 As an example we have the Spotify package name inputted. However, you can of course put in any package name. You can usually find it in the URL, and it's the part that starts with com as in the example below
