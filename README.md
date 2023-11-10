@@ -59,3 +59,43 @@ def merge_CSVs(language):
     df_merged = pd.concat(df_from_each_file, ignore_index=True)
     df_merged.to_csv(path_2 + '/All_reviews_' + language + '.csv', index=False)
 ```
+Let's add a language column
+```
+# Add language column
+def add_language(language):
+    filename = 'All_reviews_' + language + '.csv'
+    all_reviews_df = pd.read_csv(path_2 + '/' + filename)
+    all_reviews_df['language'] = language
+    all_reviews_df.insert(loc=len(all_reviews_df.columns), column='platform', value='Android') # adding platform column
+    all_reviews_df.insert(3, 'title', '') # adding title column to make df equal to iOS df
+    all_reviews_df.rename(columns={'at': 'date'}, inplace=True) # changing column name from 'at' to 'date'
+    return all_reviews_df, filename
+```
+Let's export the results as a CSV
+```
+# Export results to csv
+def export(all_reviews_df, filename):
+    all_reviews_df.to_csv(path_2 + '/' + filename, index=False)
+```
+And delete remaining single CSVs
+```
+# Delete remaining single rating files
+def remove_single_CSVs():
+    all_single_ratings = glob.glob(os.path.join(path_1, 'reviews*.csv'))
+    for x in all_single_ratings:
+      os.remove(x)
+```
+And this is the master function which directs how the other functions should flow
+```
+# Master command
+def master_command(language, country, app_package_name):
+    extract_comments(language, country, app_package_name)
+    merge_CSVs(language)
+    all_reviews_df, filename = add_language(language)
+    export(all_reviews_df, filename)
+    remove_single_CSVs()   
+```
+So we start it all by inputting the desired app package name here
+```
+master_command('en', 'US', 'com.spotify.music') # (language, country, package name)
+```
