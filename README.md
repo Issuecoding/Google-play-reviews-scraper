@@ -44,6 +44,8 @@ def extract_comments(language, country, app_package_name):
             dict_writer.writeheader()
             dict_writer.writerows(toCSV)
 ```
+The above code creates a separate CSV for each star rating
+
 ### Merge all the created CSVs into one
 ```python
 # Merge CSVs in one
