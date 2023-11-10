@@ -99,3 +99,5 @@ def master_command(language, country, app_package_name):
 ```
 master_command('en', 'US', 'com.spotify.music') # (language, country, package name)
 ```
+As an example we have the Spotify package name inputted. However, you can of course put in any package name. You can usually find it in the URL, and it's the part that starts with com as in the example below
+![image](https://github.com/Issuecoding/Google-play-reviews-scraper/assets/148871637/80051001-375d-4dd3-bbc6-30e4564e1110)
