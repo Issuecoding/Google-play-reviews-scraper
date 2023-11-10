@@ -59,7 +59,7 @@ def merge_CSVs(language):
     df_merged = pd.concat(df_from_each_file, ignore_index=True)
     df_merged.to_csv(path_2 + '/All_reviews_' + language + '.csv', index=False)
 ```
-Let's add a language column
+### Let's add a language column
 ```
 # Add language column
 def add_language(language):
@@ -71,13 +71,13 @@ def add_language(language):
     all_reviews_df.rename(columns={'at': 'date'}, inplace=True) # changing column name from 'at' to 'date'
     return all_reviews_df, filename
 ```
-Let's export the results as a CSV
+### Let's export the results as a CSV
 ```
 # Export results to csv
 def export(all_reviews_df, filename):
     all_reviews_df.to_csv(path_2 + '/' + filename, index=False)
 ```
-And delete remaining single CSVs
+### And delete remaining single CSVs
 ```
 # Delete remaining single rating files
 def remove_single_CSVs():
@@ -85,7 +85,7 @@ def remove_single_CSVs():
     for x in all_single_ratings:
       os.remove(x)
 ```
-And this is the master function which directs how the other functions should flow
+### And this is the master function which directs how the other functions should flow
 ```
 # Master command
 def master_command(language, country, app_package_name):
@@ -95,7 +95,7 @@ def master_command(language, country, app_package_name):
     export(all_reviews_df, filename)
     remove_single_CSVs()   
 ```
-So we start it all by inputting the desired app package name here
+### So we start it all by inputting the desired app package name here
 ```
 master_command('en', 'US', 'com.spotify.music') # (language, country, package name)
 ```
