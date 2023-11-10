@@ -32,7 +32,6 @@ def extract_comments(language, country, app_package_name):
             sort=Sort.NEWEST, # defaults to Sort.MOST_RELEVANT
             filter_score_with=x # defaults to None(means all score)
         )
-    
         if result == []: # Skips x value in case there are no reviews at this score
             continue
         else:
