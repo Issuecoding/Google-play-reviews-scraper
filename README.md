@@ -7,7 +7,7 @@ This code is meant to be used for educational purposes and I take no responsibil
 ## Code
 ### Let's import the libraries needed
 
-´´´
+'''
 #Put together by Issuecoding https://github.com/Issuecoding
 
 #Find app package names at https://www.fileplanet.com/apk
@@ -18,11 +18,10 @@ from google_play_scraper import Sort, reviews, reviews_all
 import pandas as pd
 import csv
 import os, glob
-´´´
+'''
 
 ### We create a function to extract the comments
-
-´´´
+'''
 def extract_comments(language, country, app_package_name):
     it = iter(range(1,6)) # to iterate the following loop over the selected star ratings
     for x in it: # (1,6) being star ratings from 1 to 5
@@ -46,5 +45,4 @@ def extract_comments(language, country, app_package_name):
             dict_writer = csv.DictWriter(output_file, fieldnames=toCSV[0].keys())
             dict_writer.writeheader()
             dict_writer.writerows(toCSV)
-
-´´´
+'''
