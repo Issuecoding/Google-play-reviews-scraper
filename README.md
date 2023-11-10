@@ -8,7 +8,6 @@ This code is meant to be used for educational purposes and I take no responsibil
 ### Let's import the libraries needed
 
 ´´´
-
 #Put together by Issuecoding https://github.com/Issuecoding
 
 #Find app package names at https://www.fileplanet.com/apk
@@ -20,7 +19,9 @@ import pandas as pd
 import csv
 import os, glob
 ´´´
+
 ### We create a function to extract the comments
+
 ´´´
 def extract_comments(language, country, app_package_name):
     it = iter(range(1,6)) # to iterate the following loop over the selected star ratings
