@@ -7,7 +7,7 @@ This code is meant to be used for educational purposes and I take no responsibil
 ## Code
 ### Let's import the libraries needed
 
-```
+```python
 # Find app package names at https://www.fileplanet.com/apk
 # Google play scraper library https://github.com/facundoolano/google-play-scraper
 
@@ -19,7 +19,7 @@ import os, glob
 ```
 
 ### Create a function to extract the comments
-```
+```python
 def extract_comments(language, country, app_package_name):
     it = iter(range(1,6)) # to iterate the following loop over the selected star ratings
     for x in it: # (1,6) being star ratings from 1 to 5
@@ -45,7 +45,7 @@ def extract_comments(language, country, app_package_name):
             dict_writer.writerows(toCSV)
 ```
 ### Merge all the created CSVs into one
-```
+```python
 # Merge CSVs in one
 # https://blog.softhints.com/how-to-merge-multiple-csv-files-with-python/
 
