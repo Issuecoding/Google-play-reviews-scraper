@@ -6,3 +6,11 @@ This code is meant to be used for educational purposes and I take no responsibil
 
 ## Code
 ### Let's import the libraries needed
+
+´´´
+from google_play_scraper import app
+from google_play_scraper import Sort, reviews, reviews_all
+import pandas as pd
+import csv
+import os, glob
+´´´
